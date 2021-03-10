@@ -1,0 +1,25 @@
+{
+  "name": "typescript_basics_exercises",
+  "version": "1.0.0",
+  "description": "1- abra o cmd (windows + r)\r     2- npm install typescript -g \r     3- npm install --global yarn",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuannAnd/Typescript_basics_exercises.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HuannAnd/Typescript_basics_exercises/issues"
+  },
+  "homepage": "https://github.com/HuannAnd/Typescript_basics_exercises#readme",
+  "dependencies": {
+    "ts-node": "^9.1.1",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.2.3"
+  }
+}
