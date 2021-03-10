@@ -9,6 +9,26 @@
     3- npm install --global yarn
 
 
+### Comandos Git 
+
+    // Enviar alterações para o repositório no github
+    1- git add . // Pegando todas as alterações
+    2- git commit -m "sua mensagem" // Mensagem que aparecerá no github
+    3- git push // empurrando as alterações para o github
+
+    // puxando alterações do github para sua maquina local
+    git pull
+
+
+### Atalhos do teclado
+
+    shift + end // seleciona a linha até o final
+    shift + home // seleciona a linha até o inicio
+    ctrl + shift + setas // selecionando palavras
+    ctrl + space // Aparecer na tela as opções que podem ser digitadas
+    ctrl + . // importar algo
+
+
 ### inicializando um projeto
 
     npm init -y (criando package.json)
