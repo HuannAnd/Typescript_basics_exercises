@@ -3,7 +3,9 @@
     "target": "es2017",                          
     "module": "commonjs", 
     "allowJs": true,                                            
-    "esModuleInterop": true,                  
+    "sourceMap": true,                
+    "outDir": "out",
+    "esModuleInterop": true,  
     "skipLibCheck": true,                     
     "forceConsistentCasingInFileNames": true  
   },

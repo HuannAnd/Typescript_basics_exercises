@@ -6,4 +6,8 @@ import { userCreation, functionsExamplesWithReturn } from "./exemplos"
 
 // const example =  userCreation('Vinicius Oliveira', 16)
 // console.log(example)
-console.log(Exercises.FirstExercise3())
+const namesArray: Array<string> = ['Huann','vinicius','lucas','nyko','Matheus']
+const agesArray: Array<number> = [18,16,23,15,45]
+
+// Estamos enviando para o FirstExercise4 as idades em forma de array
+Exercises.FirstExercise5(namesArray, agesArray)
