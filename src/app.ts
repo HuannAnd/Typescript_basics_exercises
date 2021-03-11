@@ -56,6 +56,19 @@ export function FirstExercise2() {
 
     console.log(counter)
 }
+export function FirstExercise3() {
+    // 3)Imprimir todo os números ímpares menores de 200.
+    
+    let var1 = 1
+    while (var1 <= 200) {
+        if (var1 % 2 === 1) {
+            console.log(var1)
+        }
+            
+        var1++
+    }
+}
+
 
 
 // Aqui estamos exportando especificamente as funções

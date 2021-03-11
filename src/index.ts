@@ -6,4 +6,4 @@ import { userCreation, functionsExamplesWithReturn } from "./exemplos"
 
 // const example =  userCreation('Vinicius Oliveira', 16)
 // console.log(example)
-console.log(Exercises.FirstExercise2())
+console.log(Exercises.FirstExercise3())
