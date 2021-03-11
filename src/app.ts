@@ -48,10 +48,10 @@ export function FirstExercise2() {
     // 2)Imprimir a soma dos números inteiros de 1 a 100.
 
     let counter = 0
-    let indux = 1
-    while (indux <= 100) {
-        counter += indux
-        indux++
+    let bolado = 1
+    while (bolado <= 100) {
+        counter += bolado
+        bolado++
     }
 
     console.log(counter)
