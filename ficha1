@@ -8,7 +8,6 @@ que forem par.
 2)Imprimir a soma dos números inteiros de 1 a 100.
 
 3)Imprimir todo os números ímpares menores de 200.
-
 4)Calcular a média de idade de uma turma qualquer. O algoritmo deve parar quando for digitada a idade igual a zero.
 
 5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. Após informar estes dados, o programa deve mostrar apenas porcentagem de mulheres que estão com idade entre 18 e 35.

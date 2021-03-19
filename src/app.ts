@@ -1,5 +1,7 @@
 //! 1)Crie um programa que imprima:
 
+import { couldStartTrivia, setSyntheticLeadingComments } from "typescript"
+
 //* Este é mais recomendado
 export const firstExerciseA = () => {
     // a)Os números de 1 a 10 de forma crescente
@@ -94,6 +96,35 @@ export const FirstExercise4 = (ages: Array<number>) => {
     console.log(parseFloat(average.toFixed(2)))
 }
 
-// Aqui estamos exportando especificamente as funções
+export function FirstExercise5(ages: Array<number>, name: Array<string>) {
+
+    // 5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. 
+    // Após informar estes dados, o programa deve mostrar apenas porcentagem 
+    // de mulheres que estão com idade entre 18 e 35.
+    
+    let index = 0
+    let womenBetween18And35 = 0
+    while (index < name.length) {
+        if (ages[index] >= 18 && ages[index] <= 35) {
+            womenBetween18And35++
+        }
+        
+        index++
+    }
+    
+    const c = (womenBetween18And35 / ages.length) * 100
+    console.log(`Cerca de ${parseFloat(c.toFixed(2))}`)            
+}
+
+export function FirstExercise7(walletPrice: number, cigaretsPerDay: number, yearsSmoking: number)  {
+    // 7)Calcular a quantidade de dinheiro gasta por um fumante.
+    //  Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
+     
+    const walletsPerDay = Math.floor(12 / cigaretsPerDay)
+    const cigaretsPricePerYear = Math.floor(365 / (walletsPerDay + 1))
+    console.log(cigaretsPricePerYear * yearsSmoking * walletPrice)          
+}
+
+    //  Aqui estamos exportando especificamente as funções
 // firstExerciseA e firstExerciseB para outros arquivos
 // export { firstExerciseA, firstExerciseB }
