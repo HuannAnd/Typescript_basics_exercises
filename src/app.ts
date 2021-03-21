@@ -59,16 +59,6 @@ export function FirstExercise2() {
     
 }
 
-// let index = 1
-// while (index <= 100) {
-//     counter += index
-//     index++
-// }
-
-// 1º cria o let index
-// 2º faz a comparação
-// 3º roda o código dentro das chaves
-// por ultimo faz o index++
 export function FirstExercise3() {
     // 3)Imprimir todo os números ímpares menores de 200.
     
@@ -76,19 +66,6 @@ export function FirstExercise3() {
         console.log(v4)
     }
 }
-
-    // let index = 1
-    // while (index <= 200) {
-    //     if (index % 2 === 1) {
-    //         console.log(index)
-    //     }
-            
-    //     index++
-    // }
-
-    // while (index < 200) {
-    //     console.log(index)
-    //     index += 2
 
 export const FirstExercise4 = (ages: Array<number>) => {
     // 4) Calcular a média de idade de uma turma qualquer. O algoritmo deve 
@@ -161,8 +138,25 @@ export const FirstExercise9 = () => {
 
 }
 
-export const FirstExercise10 = () => {
-    
+export const FirstExercise10 = (a: number, b: number) => {
+    // 10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles 
+    // é maior, ou a mensagem "A = B" caso sejam iguais.
+
+    // if (a > b) console.log(a)
+    // else if (a < b) console.log(b)
+    // else console.log('A = B') 
+
+    if (a === b) {
+        console.log('A = B')
+    }
+
+    else {
+        // Se a condição for verdadeira retornará o primeiro valor dps do ponto de 
+        // interrogação, caso contrário retornará o valor dps dos 2 pontos
+        const ifTernary = a > b ? 'A é maior que B' : 'B é maior que A'
+        console.log(ifTernary)
+        // console.log(a > b ? 'A é maior que B' : 'B é maior que A')
+    }
 }
 
 export const FirstExercise11 = () => {
@@ -177,6 +171,7 @@ export const FirstExercise13 = () => {
     
 }
 
+//! deixar por ultimo
 export const FirstExercise14 = () => {
     
 }

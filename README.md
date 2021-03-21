@@ -132,6 +132,10 @@
         return 'deu erro'
     }
 
+    // Se a condição for verdadeira retornará o primeiro valor dps do ponto de 
+    // interrogação, caso contrário retornará o valor dps dos 2 pontos
+    const ifTernary = a > b ? 'A é maior que B' : 'B é maior que A'
+
 
 ### Condições
 
