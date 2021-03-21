@@ -125,6 +125,7 @@ export function FirstExercise7(walletPrice: number, cigaretsPerDay: number, year
     console.log(cigaretsPricePerYear * yearsSmoking * walletPrice)          
 }
 
+
     //  Aqui estamos exportando especificamente as funções
 // firstExerciseA e firstExerciseB para outros arquivos
 // export { firstExerciseA, firstExerciseB }
