@@ -3,15 +3,19 @@
 import { couldStartTrivia, setSyntheticLeadingComments } from "typescript"
 
 //* Este é mais recomendado
-export const firstExerciseA = () => {
+export const FirstExerciseA = () => {
     // a)Os números de 1 a 10 de forma crescente
     
-    let counter = 1
-    while (counter <= 10) {
-        // console.log(arr[counter])
-        console.log(counter)
-        counter++
+    for (let v1 = 1; v1 <= 10; v1++) {
+        console.log(v1)
+    
     }
+    // let counter = 1
+    // while (counter <= 10) {
+    //     // console.log(arr[counter])
+    //     console.log(counter)
+    //     counter++
+    // }
 }
 
 //* Mesmo código porém escrito de maneiras diferentes
@@ -24,24 +28,23 @@ export const firstExerciseA = () => {
 export const firstExerciseB = () => {
     // b)Os números de 1 a 10 de forma decrescente
     
-    let subscript = 10
-    while (subscript >= 1) {
-        console.log(subscript)
-        subscript-- 
-    }
+    for (let v2 = 10; v2 >= 1 ; v2--){
+        console.log(v2)
+        }
+  
+  // let subscript = 10
+    // while (subscript >= 1) {
+    //     console.log(subscript)
+    //     subscript-- 
 }
 
 export function FirstExerciseC() {
     // c)Os números de 1 a 10 de forma crescente, mas apenas aqueles
     // que forem par.
+  
+    for (let v3 = 2; v3 <= 10 ; v3 += 2) {
+        console.log(v3)
     
-    let counter = 1
-    while (counter <= 10)  {
-        if (counter % 2 === 0) {
-            console.log(counter)
-        }
-
-        counter++
     }
 }
 
@@ -49,27 +52,32 @@ export function FirstExercise2() {
     // 2)Imprimir a soma dos números inteiros de 1 a 100.
 
     let counter = 0
-    // let index = 1
-    // while (index <= 100) {
-    //     counter += index
-    //     index++
-    // }
-    
-    // 1º cria o let index
-    // 2º faz a comparação
-    // 3º roda o código dentro das chaves
-    // por ultimo faz o index++
-    for (let index = 1; index < 101; index++) {
+    for (let index = 1; index <= 100; index++) {
         counter += index
     }
-
     console.log(counter)
+    
 }
 
+// let index = 1
+// while (index <= 100) {
+//     counter += index
+//     index++
+// }
+
+// 1º cria o let index
+// 2º faz a comparação
+// 3º roda o código dentro das chaves
+// por ultimo faz o index++
 export function FirstExercise3() {
     // 3)Imprimir todo os números ímpares menores de 200.
     
-    let index = 1
+    for (let v4 = 1; v4 <= 200; v4 += 2) {
+        console.log(v4)
+    }
+}
+
+    // let index = 1
     // while (index <= 200) {
     //     if (index % 2 === 1) {
     //         console.log(index)
@@ -78,11 +86,9 @@ export function FirstExercise3() {
     //     index++
     // }
 
-    while (index < 200) {
-        console.log(index)
-        index += 2
-    }
-}
+    // while (index < 200) {
+    //     console.log(index)
+    //     index += 2
 
 export const FirstExercise4 = (ages: Array<number>) => {
     // 4) Calcular a média de idade de uma turma qualquer. O algoritmo deve 
@@ -191,11 +197,6 @@ export const FirstExercise18 = () => {
     
 }
 
-<<<<<<< HEAD
-
-    //  Aqui estamos exportando especificamente as funções
-=======
 // Aqui estamos exportando especificamente as funções
->>>>>>> 19d0c134e5f2444261687316185b1e8624d2a053
 // firstExerciseA e firstExerciseB para outros arquivos
 // export { firstExerciseA, firstExerciseB }
