@@ -108,54 +108,54 @@ export function FirstExercise5(ages: Array<number>, name: Array<string>) {
 }
 
 
-    type PropsFirstExercise6 = {
-        modos: number
-        cadastro: string
-        candidatos: string  
-        senha: string
-        nome: string
-        quantidadesDeVotos1ou2: number
-        subscriptDeQuantidadeDeVotos: number[] = [1 , 2] 
-    }
-    
-    export const FirstExercise6 = (props : PropsFirstExercise6) => {
+type PropsFirstExercise6 = {
+    modos: number
+    cadastro: string
+    candidatos: string  
+    senha: string
+    nome: string
+    quantidadesDeVotos1ou2: number
+    // subscriptDeQuantidadeDeVotos: number[] = [1 , 2] 
+}
 
-    //Criar um algoritmo que simule uma urna eletrônica. Esta urna deve possuir dois candidatos
+//TODO: verificação da senha vem em primeiro lugar
+//TODO: fazer os 3 modos dentro de 1 for, utilizar continue
+export const FirstExercise6 = (props : PropsFirstExercise6) => {
+    //Criar um algoritmo que simule uma urna eletrónica. Esta urna deve possuir dois candidatos
     //e possui três modos. O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada
     //um dos dois candidatos. Por medidas de segurança, para poder cadastrar um candidato na urna
     //o sistema deve solicitar ao usuário a senha para poder ter acesso
     //(a senha do sistema é Pa$$w0rd). O segundo modo é o modo de votos, onde o usuário informa 1 para
     //votar no primeiro candidato e 2 para votar no segundo candidato. O terceiro modo,
     //é o modo de apuração de votos, onde o sistema verifica qual candidato tem mais votos.
-    //Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso contrário
-    //deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+    //Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
+    //contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+            
+    if (props.modos === 1) {
+        console.log("Qual o seu candidato?")
+        var candidatos = props.candidatos === 'Flavinho' || props.candidatos == 'Peterpan' 
+            ? console.log("RECONHECEMOS SEU CANDIDATO") 
+            : console.log("NÃO RECONHECEMOS SEU CANDIDATO, POR FAVOR TENTE MAIS TARDE.")
+        // break
+    }
+    // CORPO DO TEXTO DA SENHA
     
-            
-        if (props.modos == 1) {
-            console.log("Qual o seu candidato?")
-            var candidatos = props.candidatos == 'Flavinho' || props.candidatos == 'Peterpan' ? 
-            console.log("RECONHECEMOS SEU CANDIDATO") : 
-            console.log("NÃO RECONHECEMOS SEU CANDIDATO, POR FAVOR TENTE MAIS TARDE.")
-            break
-        }
-        // CORPO DO TEXTO DA SENHA
+    if (props.modos === 2 && props.senha === 'Pa$$w0rd') {
+        console.log("VOTO REGISTRADO")
+    }
+    
+    else if(props.modos === 2 && props.senha !== 'Pa$$w0rd'){
+        console.log("NÃO RECONHECEMOS SUA SENHA, POR FAVOR TENTE MAIS TARDE.")
+    }
+    
+    // if (props.modos === 3) {
+
+    //     if(props.quantidadesDeVotos1ou2 === ) console.log("SEGUNDO TURNO")
         
-         if (props.modos == 2 && props.senha == 'Pa$$w0rd') {
-             console.log("VOTO REGISTRADO")
-            }
-            
-            else if(props.modos == 2 && props.senha !== 'Pa$$w0rd'){
-                console.log("NÃO RECONHECEMOS SUA SENHA, POR FAVOR TENTE MAIS TARDE.")
-            }
-            
-            if (props.modos == 3) {
+    //     var verificacaoDosCandidatos = 
 
-                if(props.quantidadesDeVotos1ou2 == ) console.log("SEGUNDO TURNO")
-                
-                var verificacaoDosCandidatos = 
-
-            }
-        }
+    // }
+}
 
 
 
@@ -182,9 +182,9 @@ export const FirstExercise7 = (props: PropsFirstExercise7) => {
 export const FirstExercise8 = (x: number , y: number ) => {
     // 8)Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y
 
-        const verificaçãoModular = x % y == 0  
-            ? console.log("x é múltiplo de y")  
-            : console.log("x não é múltiplo de y")
+    const verificaçãoModular = x % y == 0  
+        ? console.log("x é múltiplo de y")  
+        : console.log("x não é múltiplo de y")
 }
 
 export const FirstExercise9 = (x: number, y: number , z: number) => {
@@ -193,10 +193,9 @@ export const FirstExercise9 = (x: number, y: number , z: number) => {
     
     if(x == y + z) console.log('x = y + z')
     
-    var verficaçãoAritmética = x > y + z ? console.log('Infelizmente não é um triângulo(x > y + z)') :
-    console.log('Até pode ser um triângulo(x < y + z)') 
-
-
+    const verficacaoAritmética = x > y + z 
+        ? console.log('Infelizmente não é um triângulo(x > y + z)') 
+        : console.log('Até pode ser um triângulo(x < y + z)') 
 }
 
 export const FirstExercise10 = (a: number, b: number) => {
