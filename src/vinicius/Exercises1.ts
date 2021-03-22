@@ -69,12 +69,16 @@ export function Exercise5(ages: Array<number>, name: Array<string>) {
     return ages.filter(x => x > 17 && x < 36).length        
 }
 
-type Exercise6Props = {
-    password: string
+type candidate = {
+    name: string
+    votes: number
 }
 
-function createCandidates(name: string): (string | number)[] {
-    return [name, 0]
+function createCandidates(name: string): { name: string, votes: number } {
+    return {
+        name: name,
+        votes: 0
+    }
 }
 
 export const Exercise6 = (password: string, candidateNames: string[], candidateVotes: number[]): string => {
@@ -89,14 +93,28 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
 
     let firstCandidate: (string | number)[]
     let secondCandidate: (string | number)[]
+    let candidate: candidate
+    let teste: (name | votes)Candidate[]
+
+    let candidates = [{
+        name: 'Vinicius',
+        age: 0
+    }, {
+        name: 'Huann',
+        age: 1
+    }]
     for (let mode = 1; mode <= 3; mode++) {
         
         if (mode === 1) {
             if (password !== 'Pa$$w0rd') return 'senha inválida'
             
-            firstCandidate = createCandidates(candidateNames[0])
-            secondCandidate = createCandidates(candidateNames[1])
-            continue
+            // firstCandidate = createCandidates(candidateNames[0])
+            // secondCandidate = createCandidates(candidateNames[1])
+            // continue
+            candidate = createCandidates('Vinicius')
+            teste.push(createCandidates('Vinicius'))
+            // return candidates[1].age.toString()
+            return teste[0].name
         }
 
         if (mode === 2) {
