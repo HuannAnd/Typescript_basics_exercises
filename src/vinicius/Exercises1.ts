@@ -71,24 +71,13 @@ export function Exercise5(ages: Array<number>, name: Array<string>) {
 
 type Exercise6Props = {
     password: string
-    candidateNames: string[]
-    candidateVotes: number[]
 }
 
-type Candidates = {
-    candidates: {
-        name: string
-        votes: number
-    }
+function createCandidates(name: string): (string | number)[] {
+    return [name, 0]
 }
 
-const CreteCandidate = (candidateNames: string[], candidateVotes: number[]): Candidates => {
-    let candidates = [{
-        
-    }]
-}
-
-export const Exercise6 = (props: Exercise6Props) => {
+export const Exercise6 = (password: string, candidateNames: string[], candidateVotes: number[]): string => {
     // 6)Criar um algoritmo que simule uma urna eletrónica. Esta urna deve possuir dois candidatos 
     // e possui três modos. O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos 
     // dois candidatos. Por medidas de segurança, para poder cadastrar um candidato na urna o sistema deve
@@ -98,10 +87,32 @@ export const Exercise6 = (props: Exercise6Props) => {
     // tem mais votos. Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO",
     // caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
 
-    if (props.password !== 'Pa$$w0rd') return 'senha invalida'
+    let firstCandidate: (string | number)[]
+    let secondCandidate: (string | number)[]
+    for (let mode = 1; mode <= 3; mode++) {
+        
+        if (mode === 1) {
+            if (password !== 'Pa$$w0rd') return 'senha inválida'
+            
+            firstCandidate = createCandidates(candidateNames[0])
+            secondCandidate = createCandidates(candidateNames[1])
+            continue
+        }
 
-    
-    
+        if (mode === 2) {
+            firstCandidate[1] = candidateVotes[0]
+            secondCandidate[1] = candidateVotes[1]
+            continue
+        }
+
+        if (mode === 3) {
+            if (firstCandidate[1] === secondCandidate[1]) return 'Segundo turno'
+                
+            return firstCandidate[1] > secondCandidate[1]
+                ? `o candidato ${firstCandidate[0]} venceu com: ${firstCandidate[1]} votos`
+                : `o candidato ${secondCandidate[0]} venceu com: ${secondCandidate[1]} votos`
+        }
+    }
 }
 
 
