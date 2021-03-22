@@ -42,14 +42,14 @@ export function Exercise2(): number {
     return counter
 }
 
-export function Exercise3(): number[] {
+export const Exercise3 = (): number[] => {
     // 3)Imprimir todo os números ímpares menores de 200.
     
     let counter: number[]
     for (let index = 1; index < 200; index+=2) {
         counter.push(index)
     }
-
+    
     return counter
 }
 
@@ -60,7 +60,7 @@ export const Exercise4 = (ages: number[]): number => {
     return ages.reduce((a, b) => a + b)
 }
 
-export function Exercise5(ages: Array<number>, name: Array<string>) {
+export const Exercise5 = (ages: Array<number>, name: Array<string>): number => {
 
     // 5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. 
     // Após informar estes dados, o programa deve mostrar apenas percentagem 
@@ -69,12 +69,7 @@ export function Exercise5(ages: Array<number>, name: Array<string>) {
     return ages.filter(x => x > 17 && x < 36).length        
 }
 
-type candidate = {
-    name: string
-    votes: number
-}
-
-function createCandidates(name: string): { name: string, votes: number } {
+const createCandidates = (name: string): { name: string, votes: number } => {
     return {
         name: name,
         votes: 0
@@ -91,48 +86,45 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
     // tem mais votos. Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO",
     // caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
 
-    let firstCandidate: (string | number)[]
-    let secondCandidate: (string | number)[]
-    let candidate: candidate
-    let teste: (name | votes)Candidate[]
+    let candidates: {
+        name: string
+        votes: number
+    }[] = []
 
-    let candidates = [{
-        name: 'Vinicius',
-        age: 0
-    }, {
-        name: 'Huann',
-        age: 1
-    }]
     for (let mode = 1; mode <= 3; mode++) {
-        
         if (mode === 1) {
             if (password !== 'Pa$$w0rd') return 'senha inválida'
+
+            candidates = candidateNames.map(candidateName => {
+                return createCandidates(candidateName)
+            })
+        }
+
+        else if (mode === 2) {
+            for (let index = 0; index < candidates.length; index++) {
+                candidates[index].votes = candidateVotes[index]
+            }
+        }
+
+        else if (mode === 3) {
+            let mostVotes: number = candidates[0].votes
+            candidates.forEach(x => {
+                mostVotes = x.votes > mostVotes 
+                    ? x.votes 
+                    : mostVotes
+            })
             
-            // firstCandidate = createCandidates(candidateNames[0])
-            // secondCandidate = createCandidates(candidateNames[1])
-            // continue
-            candidate = createCandidates('Vinicius')
-            teste.push(createCandidates('Vinicius'))
-            // return candidates[1].age.toString()
-            return teste[0].name
-        }
+            const secondTurnVerification: boolean = candidates
+                .filter(x => x.votes === mostVotes)
+                .length > 1
+        
+            if (secondTurnVerification) return 'Segundo Turno'
 
-        if (mode === 2) {
-            firstCandidate[1] = candidateVotes[0]
-            secondCandidate[1] = candidateVotes[1]
-            continue
-        }
-
-        if (mode === 3) {
-            if (firstCandidate[1] === secondCandidate[1]) return 'Segundo turno'
-                
-            return firstCandidate[1] > secondCandidate[1]
-                ? `o candidato ${firstCandidate[0]} venceu com: ${firstCandidate[1]} votos`
-                : `o candidato ${secondCandidate[0]} venceu com: ${secondCandidate[1]} votos`
+            const winner = candidates.find(x => x.votes === mostVotes)
+            return `O vencedor é ${winner.name} com ${winner.votes} voto(s)`
         }
     }
 }
-
 
 export const Exercise7 = (walletPrice: number, cigaretsPerDay: number, yearsSmoking: number): number => {
     // 7)Calcular a quantidade de dinheiro gasta por um fumante.
