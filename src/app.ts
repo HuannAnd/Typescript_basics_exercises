@@ -110,12 +110,9 @@ export function FirstExercise5(ages: Array<number>, name: Array<string>) {
 
 type PropsFirstExercise6 = {
     modos: number
-    cadastro: string
-    candidatos: string  
-    senha: string
-    nome: string
-    quantidadesDeVotos1ou2: number
-    // subscriptDeQuantidadeDeVotos: number[] = [1 , 2] 
+    candidatos: string[] = []  
+    password: string
+    name: string
 }
 
 //TODO: verificação da senha vem em primeiro lugar
@@ -130,34 +127,39 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
     //é o modo de apuração de votos, onde o sistema verifica qual candidato tem mais votos.
     //Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
     //contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
-            
-    if (props.modos === 1) {
-        console.log("Qual o seu candidato?")
-        var candidatos = props.candidatos === 'Flavinho' || props.candidatos == 'Peterpan' 
-            ? console.log("RECONHECEMOS SEU CANDIDATO") 
-            : console.log("NÃO RECONHECEMOS SEU CANDIDATO, POR FAVOR TENTE MAIS TARDE.")
-        // break
-    }
-    // CORPO DO TEXTO DA SENHA
     
-    if (props.modos === 2 && props.senha === 'Pa$$w0rd') {
-        console.log("VOTO REGISTRADO")
-    }
-    
-    else if(props.modos === 2 && props.senha !== 'Pa$$w0rd'){
-        console.log("NÃO RECONHECEMOS SUA SENHA, POR FAVOR TENTE MAIS TARDE.")
-    }
-    
-    // if (props.modos === 3) {
+    let candidate1: (string | number)[] = [props.candidatos[0], 0]
+    let candidate2: (string | number)[] = [props.candidatos[1], 0]
 
-    //     if(props.quantidadesDeVotos1ou2 === ) console.log("SEGUNDO TURNO")
+    for (props.modos = 1; props.modos <= 3; props.modos++) {
+
+        if (props.modos == 1) {
+                console.log('VERIFICANDO CANDIDATO...')
+            if(props.nome !== props.candidatos[0] && props.nome !== props.candidatos[1] ) 
+                console.log('ESSE USUÁRIO NÃO ESTÁ CADASTRADO')
+                console.log('CANDIDATO VERIFICADO COM SUCESSO')
+                console.log('CONFIRMANDO SUA SENHA...')
+            if(props.senha !== 'Pa$$w0rd')  console.log('SENHA INVÁLIDA')
+                console.log('CANDIDATOS CONFIRMADOS')   
+                        continue
+                    }
+                    
+                let candidate: {
+                    name: string
+                    votes: number
+                }[]
+            // CORPO DO TEXTO ,DA SENHA
+        if (props.modos == 2) {
+            for (let index = 0; index < candidateNames.length; index++) {
+                        candidate.push({name: candidateNames[index], votes: 0})
+    
+                continue
+            }
+    
+        if(props.modos === 3){
+            if(props.quantidadesDeVotos1ou2 == props.quantidadesDeVotos1ou2) console.log('SEGUNDO TURNO')
         
-    //     var verificacaoDosCandidatos = 
-
-    // }
-}
-
-
+            return 
 
 type PropsFirstExercise7  = {
     walletPrice: number
@@ -223,7 +225,6 @@ export const FirstExercise11 = () => {
     // 11)Ler 02 números inteiros do teclado. Se o segundo for diferente de zero,
     //  calcular e imprimir o quociente do primeiro pelo segundo. Caso contrário, 
     // imprimir a mensagem: "DIVISÃO POR ZERO".
-
 
 }
 
