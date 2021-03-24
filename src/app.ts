@@ -149,13 +149,14 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
             for (let index = 0; index < props.candidatesNames.length; index++) {
                 candidates[index].votes += props.candidatesVotes[index]
             }           
-
         }
+
         
         else {
-            if(props.candidatesNames[0] === props.candidatesNames[1]) console.log('SEGUNDO TURNO')
-            console.log(Math.max(props.votosDosCandidatos[0] , props.votosDosCandidatos[1]))
-                
+            for (let index = 0; index < props.candidatesNames.length ; index++) {
+                Math.max(candidates[index].votes)
+            }
+
         }  
     }
 }
