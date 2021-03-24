@@ -233,8 +233,10 @@ export const FirstExercise12 = () => {
     
 }
 
-export const FirstExercise13 = () => {
+export const FirstExercise13 = (numbers: number[]) => {
+    // 13)Ler 10 valores e determinar o maior dentre eles.
     
+    console.log(`O número ${Math.max(...numbers)} é o maior número dentre os outros`)
 }
 
 //! deixar por ultimo

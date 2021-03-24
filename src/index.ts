@@ -7,14 +7,5 @@ import { Exercises1, Exercises2, Exercises3, Exam } from './vinicius'
 // const namesArray: Array<string> = ['Huann','vinicius','lucas','Rua','Matheus']
 // const agesArray: Array<number> = [18,16,0,23,15,45]
 
-const props: { 
-    candidatesNames: string[]
-    password:  string
-    candidatesVotes: number[]
-} = {
-    candidatesNames:['Huann','Vinicius '], 
-    password: 'Pa$$w0rd',
-    candidatesVotes: [1 , 2]
-}
 
-Exercises.FirstExercise6(props)
+Exercises.FirstExercise13([1,1,1,1,1,1,2,2,3,3,3,16])
