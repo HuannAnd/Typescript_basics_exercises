@@ -84,7 +84,7 @@ export const Exercise7 = (users: string[]): number => {
     return (amountOfUsersBornInSC * 100) / users.length
 }
 
-export const Exercise8 = (students: {morningClass: string, afternoonClass: string}[]): string[] => {
+export const Exercise8 = (students: {morningClass: string, afternoonClass: string}[]): string => {
     // 8- Solicite ao usuário que digite o nome dos alunos das turmas Matutino e Vespertino. 
     // Cada turma possui 5 alunos. Armazene os nomes em dois arrays distintos de forma alternada, 
     // ou seja, o primeiro nome deve ser armazenado no array da Matutino, o segundo nome deve ser 
@@ -95,9 +95,12 @@ export const Exercise8 = (students: {morningClass: string, afternoonClass: strin
     const bothTurns = students.map(x => {
         const student = students.find(y => x.morningClass === y.afternoonClass)
         return student !== undefined    
-            ? x
+            ? x.morningClass
             : undefined
     })
-
-    return bothTurns.filter(x => x !== undefined).map(x => x.morningClass)
+    const bothTurnsFilter = bothTurns.filter(x => x !== undefined)
+    
+    return bothTurnsFilter.length > 1 
+        ? bothTurnsFilter.toString()
+        : ['todos os alunos estudam em meio período'].toString()
 }
