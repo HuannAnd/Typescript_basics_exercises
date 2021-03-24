@@ -110,6 +110,7 @@ export function FirstExercise5(ages: Array<number>, name: Array<string>) {
 type PropsFirstExercise6 = {
     candidatesNames: string[] 
     password: string
+    candidatesVotes: number[]
 }
 
 //TODO: verificação da senha vem em primeiro lugar
@@ -125,37 +126,37 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
     //Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
     //contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
     
-    let candidate1: (string | number)[] = [props.candidatesNames[0], 0]
-    let candidate2: (string | number)[] = [props.candidatesNames[1], 2]
-    
-    for (let index = 1; index <= 3; index++) {
-        if (index == 1) {
-            console.log('VERIFICANDO SENHA...')
-        
-            if(props.password !== 'Pa$$w0rd') console.log('SENHA INVÁLIDA')
-            console.log('SENHA VERIFICADA')
-            
-            continue
-        }
-
-        let candidate: {
+    let candidates: {
         name: string
         votes: number
-        }[] = []
+    }[] = []
 
-        if (index == 2) {
+    for (let index = 1; index <= 3; index++) {
+        
+        if (index == 1) {
+            console.log('VERIFICANDO SENHA...')
+            
+            if(props.password !== 'Pa$$w0rd') console.log('SENHA INVÁLIDA')
+            console.log('SENHA VERIFICADA')            
+            
             for (let index = 0; index < props.candidatesNames.length; index++) {
-                candidate.push({name: props.candidatesNames[index], votes: 0})
+                candidates.push({name: props.candidatesNames[index], votes: 0})
             }
             
-            
-            continue
+        }
+
+        else if (index == 2) {
+            for (let index = 0; index < props.candidatesNames.length; index++) {
+                candidates[index].votes += props.candidatesVotes[index]
+            }           
+
         }
         
-        if(index == 3){
-            
-
-        }   
+        else {
+            if(props.candidatesNames[0] === props.candidatesNames[1]) console.log('SEGUNDO TURNO')
+            console.log(Math.max(props.votosDosCandidatos[0] , props.votosDosCandidatos[1]))
+                
+        }  
     }
 }
 

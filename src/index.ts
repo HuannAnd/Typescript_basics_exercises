@@ -9,9 +9,11 @@ import * as Exercises from "./app"
 const props: { 
     candidatesNames: string[]
     password:  string
+    candidatesVotes: number[]
 } = {
-    candidatesNames:['Huann','Vinicius'], 
-    password: 'Pa$$w0rd'
+    candidatesNames:['Huann','Vinicius '], 
+    password: 'Pa$$w0rd',
+    candidatesVotes: [1 , 2]
 }
 
 Exercises.FirstExercise6(props)
