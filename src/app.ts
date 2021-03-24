@@ -107,12 +107,9 @@ export function FirstExercise5(ages: Array<number>, name: Array<string>) {
     console.log(`Cerca de ${parseFloat(percentageWomenBetween18And35.toFixed(2))}`)            
 }
 
-
 type PropsFirstExercise6 = {
-    modos: number
-    candidatos: string[] = []  
+    candidatesNames: string[] 
     password: string
-    name: string
 }
 
 //TODO: verificação da senha vem em primeiro lugar
@@ -128,38 +125,40 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
     //Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso 
     //contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
     
-    let candidate1: (string | number)[] = [props.candidatos[0], 0]
-    let candidate2: (string | number)[] = [props.candidatos[1], 0]
-
-    for (props.modos = 1; props.modos <= 3; props.modos++) {
-
-        if (props.modos == 1) {
-                console.log('VERIFICANDO CANDIDATO...')
-            if(props.nome !== props.candidatos[0] && props.nome !== props.candidatos[1] ) 
-                console.log('ESSE USUÁRIO NÃO ESTÁ CADASTRADO')
-                console.log('CANDIDATO VERIFICADO COM SUCESSO')
-                console.log('CONFIRMANDO SUA SENHA...')
-            if(props.senha !== 'Pa$$w0rd')  console.log('SENHA INVÁLIDA')
-                console.log('CANDIDATOS CONFIRMADOS')   
-                        continue
-                    }
-                    
-                let candidate: {
-                    name: string
-                    votes: number
-                }[]
-            // CORPO DO TEXTO ,DA SENHA
-        if (props.modos == 2) {
-            for (let index = 0; index < candidateNames.length; index++) {
-                        candidate.push({name: candidateNames[index], votes: 0})
+    let candidate1: (string | number)[] = [props.candidatesNames[0], 0]
+    let candidate2: (string | number)[] = [props.candidatesNames[1], 2]
     
-                continue
-            }
-    
-        if(props.modos === 3){
-            if(props.quantidadesDeVotos1ou2 == props.quantidadesDeVotos1ou2) console.log('SEGUNDO TURNO')
+    for (let index = 1; index <= 3; index++) {
+        if (index == 1) {
+            console.log('VERIFICANDO SENHA...')
         
-            return 
+            if(props.password !== 'Pa$$w0rd') console.log('SENHA INVÁLIDA')
+            console.log('SENHA VERIFICADA')
+            
+            continue
+        }
+
+        let candidate: {
+        name: string
+        votes: number
+        }[] = []
+
+        if (index == 2) {
+            for (let index = 0; index < props.candidatesNames.length; index++) {
+                candidate.push({name: props.candidatesNames[index], votes: 0})
+            }
+            
+            
+            continue
+        }
+        
+        if(index == 3){
+            
+
+        }   
+    }
+}
+
 
 type PropsFirstExercise7  = {
     walletPrice: number

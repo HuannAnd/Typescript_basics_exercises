@@ -6,4 +6,12 @@ import * as Exercises from "./app"
 // const namesArray: Array<string> = ['Huann','vinicius','lucas','Rua','Matheus']
 // const agesArray: Array<number> = [18,16,0,23,15,45]
 
-Exercises.FirstExercise11()
+const props: { 
+    candidatesNames: string[]
+    password:  string
+} = {
+    candidatesNames:['Huann','Vinicius'], 
+    password: 'Pa$$w0rd'
+}
+
+Exercises.FirstExercise6(props)
