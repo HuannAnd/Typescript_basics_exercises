@@ -1,7 +1,7 @@
 export const Exercise1A = (): number[] => {
     // a)Os números de 1 a 10 de forma crescente
     
-    let counter: number[]
+    let counter: number[] = []
     for (let index = 1; index < 11; index++) {
         counter.push(index)
     }
@@ -12,7 +12,7 @@ export const Exercise1A = (): number[] => {
 export const Exercise1B = (): number[] => {
     // b)Os números de 1 a 10 de forma decrescente
     
-    let counter: number[]
+    let counter: number[] = []
     for (let index = 10; index > 0; index--) {
         counter.push(index)
     }
