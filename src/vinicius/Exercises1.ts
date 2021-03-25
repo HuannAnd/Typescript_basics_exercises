@@ -23,7 +23,7 @@ export const Exercise1B = (): number[] => {
 export function Exercise1C(): number[] {
     // c)Os números de 1 a 10 de forma crescente, mas apenas aqueles que forem par.
     
-    let counter: number[]
+    let counter: number[] = []
     for (let index = 0; index < 11; index+=2) {
         counter.push(index)
     }
@@ -34,7 +34,7 @@ export function Exercise1C(): number[] {
 export function Exercise2(): number {
     // 2)Imprimir a soma dos números inteiros de 1 a 100.
 
-    let counter = 0
+    let counter: number = 0
     for (let index = 1; index < 101; index++) {
         counter += index
     }
@@ -45,7 +45,7 @@ export function Exercise2(): number {
 export const Exercise3 = (): number[] => {
     // 3)Imprimir todo os números ímpares menores de 200.
     
-    let counter: number[]
+    let counter: number[] = []
     for (let index = 1; index < 200; index+=2) {
         counter.push(index)
     }
@@ -56,8 +56,9 @@ export const Exercise3 = (): number[] => {
 export const Exercise4 = (ages: number[]): number => {
     // 4) Calcular a média de idade de uma turma qualquer. O algoritmo deve 
     // parar quando for digitada a idade igual a zero.
-
-    return ages.reduce((a, b) => a + b)
+    if (ages ?? []) return undefined
+    const agesMapped = ages.map(x => x ?? 0)
+    return agesMapped.reduce((a, b) => a + b)
 }
 
 export const Exercise5 = (ages: Array<number>, name: Array<string>): number => {
