@@ -56,18 +56,25 @@ export const Exercise3 = (): number[] => {
 export const Exercise4 = (ages: number[]): number => {
     // 4) Calcular a média de idade de uma turma qualquer. O algoritmo deve 
     // parar quando for digitada a idade igual a zero.
-    if (ages ?? []) return undefined
+    
+    ages = ages ?? null
+    if (ages === null) return undefined 
+
     const agesMapped = ages.map(x => x ?? 0)
     return agesMapped.reduce((a, b) => a + b)
 }
 
-export const Exercise5 = (ages: Array<number>, name: Array<string>): number => {
+export const Exercise5 = (ages: number[]): number => {
 
     // 5)Criar um algoritmo que peça o nome e a idade de 5 mulheres. 
     // Após informar estes dados, o programa deve mostrar apenas percentagem 
     // de mulheres que estão com idade entre 18 e 35.
     
-    return ages.filter(x => x > 17 && x < 36).length        
+    ages = ages ?? null
+    if (ages === null) return undefined 
+
+    const agesMapped = ages.map(x => x ?? 0)
+    return agesMapped.filter(x => x > 17 && x < 36).length        
 }
 
 const createCandidates = (name: string): { name: string, votes: number } => {
@@ -131,6 +138,10 @@ export const Exercise7 = (walletPrice: number, cigaretsPerDay: number, yearsSmok
     // 7)Calcular a quantidade de dinheiro gasta por um fumante.
     //  Dados: o número de anos que ele fuma, o nº de cigarros fumados por dia e o preço de uma carteira.
      
+    walletPrice = walletPrice ?? 0
+    cigaretsPerDay = cigaretsPerDay ?? 0
+    yearsSmoking = yearsSmoking ?? 0
+    
     const walletsPerDay = Math.floor(12 / cigaretsPerDay)
     const cigaretsPricePerYear = Math.floor(365 / (walletsPerDay + 1))
     return cigaretsPricePerYear * yearsSmoking * walletPrice
@@ -139,6 +150,9 @@ export const Exercise7 = (walletPrice: number, cigaretsPerDay: number, yearsSmok
 export const Exercise8 = (x: number, y: number): string => {
     // 8)Ler dois números inteiros, X e Y, e apresentar mensagem informando se o X é múltiplo de Y.
 
+    x = x ?? 0
+    y = y ?? 0
+    
     return x % y === 0 ? 'é múltiplo' : 'não é múltiplo'
 }
 

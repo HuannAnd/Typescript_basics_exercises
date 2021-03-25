@@ -4,23 +4,13 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Jest",
+            "name": "Debug Tests",
             "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
             "args": [
                 "-i"
             ],
              "skipFiles": [
               "<node_internals>/**/*.js", "node_modules",
-            ]
-        },
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Launch Program",
-            "program": "src/index.ts",
-            "preLaunchTask": "tsc: build - tsconfig.json",
-            "outFiles": [
-                "src/out/**/*.js"
             ]
         }
     ]
