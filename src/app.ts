@@ -1,14 +1,9 @@
-//! 1)Crie um programa que imprima:
-
-import { couldStartTrivia, setSyntheticLeadingComments } from "typescript"
-
-//* Este é mais recomendado
+//* 1)Crie um programa que imprima:
 export const FirstExerciseA = () => {
     // a)Os números de 1 a 10 de forma crescente
     
     for (let v1 = 1; v1 <= 10; v1++) {
         console.log(v1)
-    
     }
     // let counter = 1,
     // while (counter <= 10) {
@@ -18,19 +13,12 @@ export const FirstExerciseA = () => {
     // }
 }
 
-//* Mesmo código porém escrito de maneiras diferentes
-//? function firstExerciseA() {
-//?     return 1
-//? }
-
-// Aqui estou exportando explicitamente logo na criação desta função
-// ou seja, estou criando e já exportando-a
 export const firstExerciseB = () => {
     // b)Os números de 1 a 10 de forma decrescente
     
     for (let v2 = 10; v2 >= 1 ; v2--){
         console.log(v2)
-        }
+    }
   
   // let subscript = 10
     // while (subscript >= 1) {
@@ -44,7 +32,6 @@ export function FirstExerciseC() {
   
     for (let v3 = 2; v3 <= 10 ; v3 += 2) {
         console.log(v3)
-    
     }
 }
 
@@ -83,7 +70,7 @@ export const FirstExercise4 = (ages: Array<number>) => {
         index++
     }
 
-    const average = agesSum / ages.length
+    const average = agesSum / index
     console.log(parseFloat(average.toFixed(2)))
 }
 
