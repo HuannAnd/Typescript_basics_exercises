@@ -118,12 +118,7 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
         }
 
         else {
-            let mostVotes: number = candidates[0].votes
-            candidates.forEach(x => {
-                mostVotes = x.votes > mostVotes 
-                    ? x.votes 
-                    : mostVotes
-            })
+            const mostVotes = Math.max(...candidates.map(x => x.votes))
             
             const candidatesWithMostVotes = candidates.filter(x => x.votes === mostVotes)
             const secondTurnVerification = candidatesWithMostVotes.length > 1
@@ -131,8 +126,7 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
             if (secondTurnVerification) 
                 return `Segundo turno entre: ${candidatesWithMostVotes.map(x => x.name).join(', ')}`
 
-            const winner = candidates.find(x => x.votes === mostVotes)
-            return `O vencedor é ${winner.name} com ${winner.votes} voto(s)`
+            return `O vencedor é ${candidatesWithMostVotes[0].name} com ${candidatesWithMostVotes[0].votes} voto(s)`
         }
     }
 }
