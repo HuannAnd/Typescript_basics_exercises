@@ -38,6 +38,16 @@ describe('testing first list of exercises', () => {
   })
 
   //ToDo: test exercise 6
+  test('Exercise 6', () => {
+    expect(Exercises.Exercise6('senha errada',[],[])).toBe('senha inválida')
+    expect(Exercises.Exercise6('Pa$$w0rd',['Huann','Vinicius'],[1,10]))
+      .toBe('O vencedor é Vinicius com 10 voto(s)')
+    expect(Exercises.Exercise6('Pa$$w0rd',['Huann','Lucas','Vinicius'],[16,4,0]))
+      .toBe('O vencedor é Huann com 16 voto(s)')
+    expect(Exercises.Exercise6('Pa$$w0rd',['Vinicius','Miguel'],[2,2]))
+      .toBe('Segundo turno entre: Vinicius, Miguel')
+  })
+
   test('Exercise 7',() => {
     expect(Exercises.Exercise7(1,1,undefined)).toBe(0)
     expect(Exercises.Exercise7(1,1,1)).toBe(28)
@@ -110,11 +120,34 @@ describe('testing first list of exercises', () => {
     expect(Exercises.Exercise15([undefined,null,5,25,55,500])).toBe('Múltiplos de 3:0, Múltiplos de 5:4')
   })
 
-  // test('', () => {
-  //   expect().toBe()
-  // })
+  test('Exercise 16', () => {
+    expect(Exercises.Exercise16(125.50)).toBe('ISENTO de desconto')
+    expect(Exercises.Exercise16(700)).toBe('20% desconto')
+    expect(Exercises.Exercise16(1500)).toBe('25% desconto')
+    expect(Exercises.Exercise16(2500)).toBe('30% desconto')
+    expect(Exercises.Exercise16(undefined)).toBe('Valor inválido')
+    expect(Exercises.Exercise16(null)).toBe('Valor inválido')
+  })
 
-  test('Exercise 13',() => {
-    expect(Exercises.Exercise13([1,1,1,1,1,1,1,1,1,16])).toEqual(16)
+  test('Exercise17', () => {
+    expect(Exercises.Exercise17(2)).toEqual([2,4,6,8,10,12,14,16,18,20])
+    expect(Exercises.Exercise17(3)).toEqual([3,6,9,12,15,18,21,24,27,30])
+    expect(Exercises.Exercise17(4)).toEqual([4,8,12,16,20,24,28,32,36,40])
+    expect(Exercises.Exercise17(5)).toEqual([5,10,15,20,25,30,35,40,45,50])
+    expect(Exercises.Exercise17(6)).toEqual([6,12,18,24,30,36,42,48,54,60])
+    expect(Exercises.Exercise17(7)).toEqual([7,14,21,28,35,42,49,56,63,70])
+    expect(Exercises.Exercise17(8)).toEqual([8,16,24,32,40,48,56,64,72,80])
+    expect(Exercises.Exercise17(9)).toEqual([9,18,27,36,45,54,63,72,81,90])
+    expect(Exercises.Exercise17(10)).toEqual([10,20,30,40,50,60,70,80,90,100])
+    expect(Exercises.Exercise17(null)).toBeNull()
+    expect(Exercises.Exercise17(undefined)).toBeNull()
+  })
+
+  test('Exercise 18', () => {
+    expect(Exercises.Exercise18(undefined)).toBeNull()
+    expect(Exercises.Exercise18(null)).toBeNull()
+    expect(Exercises.Exercise18(12)).toEqual(12)
+    expect(Exercises.Exercise18(11)).toEqual(14.3)
+    expect(Exercises.Exercise18(7)).toEqual(9.1)
   })
 })

@@ -85,14 +85,17 @@ const createCandidates = (name: string): { name: string, votes: number } => {
 }
 
 export const Exercise6 = (password: string, candidateNames: string[], candidateVotes: number[]): string => {
-    // 6)Criar um algoritmo que simule uma urna eletrónica. Esta urna deve possuir dois candidatos 
-    // e possui três modos. O primeiro é o modo de CADASTRO, onde o sistema pergunta o nome de cada um dos 
-    // dois candidatos. Por medidas de segurança, para poder cadastrar um candidato na urna o sistema deve
-    // solicitar ao usuário a senha para poder ter acesso (a senha do sistema é Pa$$w0rd). O segundo modo
-    // é o modo de votos, onde o usuário informa 1 para votar no primeiro candidato e 2 para votar no segundo
-    // candidato. O terceiro modo, é o modo de apuração de votos, onde o sistema verifica qual candidato
-    // tem mais votos. Caso o número de votos seja igual, o sistema deve imprimir a mensagem "SEGUNDO TURNO",
-    // caso contrário deve imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+    // 6)Criar um algoritmo que simule uma urna eletrónica. Esta urna deve 
+    // possuir dois candidatos e possui três modos. O primeiro é o modo 
+    // de CADASTRO, onde o sistema pergunta o nome de cada um dos dois 
+    // candidatos. Por medidas de segurança, para poder cadastrar um candidato 
+    // na urna o sistema deve solicitar ao usuário a senha para poder ter acesso
+    // (a senha do sistema é Pa$$w0rd). O segundo modo é o modo de votos, onde
+    // o usuário informa 1 para votar no primeiro candidato e 2 para votar no segundo
+    // candidato. O terceiro modo, é o modo de apuração de votos, onde o sistema
+    // verifica qual candidato tem mais votos. Caso o número de votos seja igual,
+    // o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso contrário deve 
+    // imprimir o nome do candidato vencedor e o número de votos que ele obteve.
 
     let candidates: {
         name: string
@@ -114,7 +117,7 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
             }
         }
 
-        else if (mode === 3) {
+        else {
             let mostVotes: number = candidates[0].votes
             candidates.forEach(x => {
                 mostVotes = x.votes > mostVotes 
@@ -122,11 +125,11 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
                     : mostVotes
             })
             
-            const secondTurnVerification: boolean = candidates
-                .filter(x => x.votes === mostVotes)
-                .length > 1
+            const candidatesWithMostVotes = candidates.filter(x => x.votes === mostVotes)
+            const secondTurnVerification = candidatesWithMostVotes.length > 1
         
-            if (secondTurnVerification) return 'Segundo Turno'
+            if (secondTurnVerification) 
+                return `Segundo turno entre: ${candidatesWithMostVotes.map(x => x.name).join(', ')}`
 
             const winner = candidates.find(x => x.votes === mostVotes)
             return `O vencedor é ${winner.name} com ${winner.votes} voto(s)`
@@ -283,6 +286,8 @@ export const Exercise16 = (salary: number): string => {
     // Maior que R$ 1.200 e menor ou igual a R$2.000 - 25% desconto
     // Maior que R$ 2.000,00 - 30% desconto
 
+    salary = salary ?? undefined
+
     switch (true) {
         case salary <= 600:
             return 'ISENTO de desconto'
@@ -290,25 +295,31 @@ export const Exercise16 = (salary: number): string => {
             return '20% desconto'
         case salary > 1200 && salary <= 2000:
             return '25% desconto'
-        default:
-            return '30% de desconto'
+        case salary > 2000:
+            return '30% desconto'
+        default: 
+            return 'Valor inválido'
     }
 }
 
 export const Exercise17 = (table: number): number[] => {
     // 17)Imprimir a tabuada de qualquer número fornecido pelo usuário até que o usuário forneça o valor –1.
 
+    table = table ?? null
+    if (table === null) return null
+    
     const multiplicationTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     return multiplicationTable.map(item => item * table)
 }
 
 export const Exercise18 = (apples: number): number => {
     // 18)As maçãs custam R$ 1,30 cada se forem compradas menos de uma dúzia, e R$ 1,00 
-    // se forem compradas pelo menos 12. Escreva um programa que leia o número de maçãs compradas, calcule e
-    // escreva o custo total da compra.
+    // se forem compradas pelo menos 12. Escreva um programa que leia o número de maçãs 
+    // compradas, calcule e escreva o custo total da compra.
 
-    const lessThenTwelve = 1.30
-    const moreThenTwelve = 1.00
-    if (apples < 12) return apples * lessThenTwelve
-    return apples * moreThenTwelve
+    apples = apples ?? null
+    if (apples === null) return null
+
+    if (apples < 12) return apples * 1.30
+    return apples * 1.00
 }
