@@ -77,13 +77,6 @@ export const Exercise5 = (ages: number[]): number => {
     return agesMapped.filter(x => x > 17 && x < 36).length        
 }
 
-const createCandidates = (name: string): { name: string, votes: number } => {
-    return {
-        name: name,
-        votes: 0
-    }
-}
-
 export const Exercise6 = (password: string, candidateNames: string[], candidateVotes: number[]): string => {
     // 6)Criar um algoritmo que simule uma urna eletrónica. Esta urna deve 
     // possuir dois candidatos e possui três modos. O primeiro é o modo 
@@ -107,14 +100,16 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
             if (password !== 'Pa$$w0rd') return 'senha inválida'
 
             candidates = candidateNames.map(candidateName => {
-                return createCandidates(candidateName)
+                return {name: candidateName, votes: 0}
             })
         }
 
         else if (mode === 2) {
-            for (let index = 0; index < candidates.length; index++) {
-                candidates[index].votes = candidateVotes[index]
-            }
+            let i = -1
+            candidates = candidates.map(x => {
+                i++
+                return {name: x.name, votes: x.votes = candidateVotes[i]}
+            })
         }
 
         else {
