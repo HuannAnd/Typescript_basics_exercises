@@ -22,30 +22,97 @@ describe('testing first list of exercises', () => {
   })
 
   test('Exercise 4',() => {
-    expect(Exercises.Exercise4(null)).toBeUndefined(),
-    expect(Exercises.Exercise4(undefined)).toBeUndefined(),
-    expect(Exercises.Exercise4([1,1,1,1,1,1,1,1,1,1])).toBe(10),
-    expect(Exercises.Exercise4([1,1,0,null,1,1,1,1,1,1])).toBe(8),
+    expect(Exercises.Exercise4(null)).toBeUndefined()
+    expect(Exercises.Exercise4(undefined)).toBeUndefined()
+    expect(Exercises.Exercise4([1,1,1,1,1,1,1,1,1,1])).toBe(10)
+    expect(Exercises.Exercise4([1,1,0,null,1,1,1,1,1,1])).toBe(8)
     expect(Exercises.Exercise4([1,1,undefined,null,1,1,1,1,1,1])).toBe(8)
   })
 
   test('Exercise 5',() => {
-    expect(Exercises.Exercise5(null)).toBeUndefined(),
-    expect(Exercises.Exercise5(undefined)).toBeUndefined(),
-    expect(Exercises.Exercise5([1,1,1,1,1,1,1,1,1,1])).toBe(0),
-    expect(Exercises.Exercise5([1,1,0,null,1,1,1,1,1,1])).toBe(0),
+    expect(Exercises.Exercise5(null)).toBeUndefined()
+    expect(Exercises.Exercise5(undefined)).toBeUndefined()
+    expect(Exercises.Exercise5([1,1,1,1,1,1,1,1,1,1])).toBe(0)
+    expect(Exercises.Exercise5([1,1,0,null,1,1,1,1,1,1])).toBe(0)
     expect(Exercises.Exercise5([1,1,undefined,null,1,1,1,1,1,1])).toBe(0)
   })
 
   //ToDo: test exercise 6
   test('Exercise 7',() => {
-    expect(Exercises.Exercise7(1,1,undefined)).toBe(0),
-    expect(Exercises.Exercise7(1,1,1)).toBe(28),
-    expect(Exercises.Exercise7(1,1,null)).toBe(0),
+    expect(Exercises.Exercise7(1,1,undefined)).toBe(0)
+    expect(Exercises.Exercise7(1,1,1)).toBe(28)
+    expect(Exercises.Exercise7(1,1,null)).toBe(0)
     expect(Exercises.Exercise7(undefined,1.20,50.50)).toBe(0)
   })
 
+  test('Exercise 8', () => {
+    expect(Exercises.Exercise8(undefined, undefined)).toBe('não é múltiplo')
+    expect(Exercises.Exercise8(6, 3)).toBe('é múltiplo')
+    expect(Exercises.Exercise8(null, null)).toBe('não é múltiplo')
+    expect(Exercises.Exercise8(2, 4)).toBe('não é múltiplo')
+    expect(Exercises.Exercise8(1, 1)).toBe('é múltiplo')
+  })
+
+  test('Exercise 9', () => {
+    expect(Exercises.Exercise9(6, 2, 2)).toBe('é maior que a soma')
+    expect(Exercises.Exercise9(6, 2, 4)).toBe('é menor que a soma')
+    expect(Exercises.Exercise9(6, 2, undefined)).toBe('é maior que a soma')
+    expect(Exercises.Exercise9(null, 2, 4)).toBe('é menor que a soma')
+  })
+
+  test('Exercise 10', () => {
+    expect(Exercises.Exercise10(6, 2)).toBe('A é maior que B')
+    expect(Exercises.Exercise10(2, 4)).toBe('B é maior que A')
+    expect(Exercises.Exercise10(2, undefined)).toBe('A é maior que B')
+    expect(Exercises.Exercise10(null, 2)).toBe('B é maior que A')
+    expect(Exercises.Exercise10(null, undefined)).toBe('A = B')
+  })
+
+  test('Exercise 11', () => {
+    expect(Exercises.Exercise11(null, null)).toBe('DIVISÃO POR ZERO')
+    expect(Exercises.Exercise11(null, undefined)).toBe('DIVISÃO POR ZERO')
+    expect(Exercises.Exercise11(0, null)).toBe('DIVISÃO POR ZERO')
+    expect(Exercises.Exercise11(6, 3)).toBe('2')
+  })
+
+  test('Exercise 12', () => {
+    expect(Exercises.Exercise12(undefined,undefined,undefined,undefined)).toBe(0)
+    expect(Exercises.Exercise12(2,undefined,null,undefined)).toBe(2)
+    expect(Exercises.Exercise12(3,undefined,1,undefined)).toBe(0)
+    expect(Exercises.Exercise12(3,4,1,0)).toBe(4)
+  })
   
+  test('Exercise 13', () => {
+    expect(Exercises.Exercise13(undefined)).toBeNull()
+    expect(Exercises.Exercise13(null)).toBeNull()
+    expect(Exercises.Exercise13([1,2,2,2,12,3])).toBe(12)
+    expect(Exercises.Exercise13([null, null])).toBe(0)
+    expect(Exercises.Exercise13([undefined, undefined])).toBe(0)
+    expect(Exercises.Exercise13([1,56,3,46])).toBe(56)
+  })
+
+  test('Exercise 14', () => {
+    expect(Exercises.Exercise14(undefined,null,2)).toBe('0 0 2')
+    expect(Exercises.Exercise14(undefined,null,undefined)).toBe('0 0 0')
+    expect(Exercises.Exercise14(1,2,3)).toBe('1 2 3')
+    expect(Exercises.Exercise14(1,3,2)).toBe('1 2 3')
+    expect(Exercises.Exercise14(2,3,1)).toBe('1 2 3')
+    expect(Exercises.Exercise14(2,1,3)).toBe('1 2 3')
+    expect(Exercises.Exercise14(3,2,1)).toBe('1 2 3')
+    expect(Exercises.Exercise14(3,1,2)).toBe('1 2 3')
+  })
+
+  test('Exercise 15', () => {
+    expect(Exercises.Exercise15([undefined,null,undefined,null,undefined])).toBe('Array inválido')
+    expect(Exercises.Exercise15(undefined)).toBe('Array inválido')
+    expect(Exercises.Exercise15(null)).toBe('Array inválido')
+    expect(Exercises.Exercise15([undefined, 3, 5])).toBe('Múltiplos de 3:1, Múltiplos de 5:1')
+    expect(Exercises.Exercise15([undefined,null,5,25,55,500])).toBe('Múltiplos de 3:0, Múltiplos de 5:4')
+  })
+
+  // test('', () => {
+  //   expect().toBe()
+  // })
 
   test('Exercise 13',() => {
     expect(Exercises.Exercise13([1,1,1,1,1,1,1,1,1,16])).toEqual(16)

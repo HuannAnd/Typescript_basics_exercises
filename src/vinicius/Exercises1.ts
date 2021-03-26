@@ -160,6 +160,10 @@ export const Exercise9 = (firstNumber: number, secondNumber: number, thirdNumber
     // 9)Fazer um algoritmo para ler 03 números reais do teclado e verificar 
     // se o primeiro é maior que a soma dos outros dois.
 
+    firstNumber = firstNumber ?? 0
+    secondNumber = secondNumber ?? 0
+    thirdNumber = thirdNumber ?? 0
+
     const secondNumberPlusThirdNumber = secondNumber + thirdNumber
     return firstNumber > secondNumberPlusThirdNumber ? 'é maior que a soma' : 'é menor que a soma'
 }
@@ -168,6 +172,9 @@ export const Exercise10 = (a: number, b: number): string => {
     // 10)Ler 02 números reais do teclado (A e B), verificar e imprimir qual deles é maior, 
     // ou a mensagem "A = B" caso sejam iguais.
 
+    a = a ?? 0
+    b = b ?? 0
+
     if (a === b) return 'A = B'
     return a > b ? 'A é maior que B' : 'B é maior que A'
 }
@@ -175,6 +182,9 @@ export const Exercise10 = (a: number, b: number): string => {
 export const Exercise11 = (firstNumber: number, secondNumber: number): string => {
     // 11)Ler 02 números inteiros do teclado. Se o segundo for diferente de zero, calcular e imprimir 
     // o quociente do primeiro pelo segundo. Caso contrário, imprimir a mensagem: "DIVISÃO POR ZERO".
+
+    firstNumber = firstNumber ?? 0
+    secondNumber = secondNumber ?? 0
 
     if (firstNumber === 0 || secondNumber === 0) return 'DIVISÃO POR ZERO'
     return `${firstNumber / secondNumber}` 
@@ -188,6 +198,11 @@ export const Exercise12 = (
     ): number => {
     // 12)Ler 4 números inteiros e calcular a soma dos que forem pares.
 
+    firstNumber = firstNumber ?? 0
+    secondNumber = secondNumber ?? 0
+    thirdNumber = thirdNumber ?? 0
+    fourthNumber = fourthNumber ?? 0
+
     const allNumbers = [firstNumber, secondNumber, thirdNumber, fourthNumber]
     return allNumbers
         .filter(x => x % 2 === 0)
@@ -197,11 +212,19 @@ export const Exercise12 = (
 export const Exercise13 = (values: number[]): number => {
     // 13)Ler 10 valores e determinar o maior dentre eles.
 
-    return Math.max(...values);
+    values = values ?? null
+    if (values === null) return null
+
+    const valuesMapped = values.map(x => x ?? 0)
+    return Math.max(...valuesMapped);
 }
 
 export const Exercise14 = (firstNumber: number, secondNumber: number, thirdNumber: number): string => {
     // 14)Ler três valores e colocar-lós em ordem. 
+
+    firstNumber = firstNumber ?? 0
+    secondNumber = secondNumber ?? 0
+    thirdNumber = thirdNumber ?? 0
 
     if (thirdNumber > secondNumber && thirdNumber > firstNumber) {
         const temporary = firstNumber
@@ -225,9 +248,27 @@ export const Exercise14 = (firstNumber: number, secondNumber: number, thirdNumbe
     return `${thirdNumber} ${secondNumber} ${firstNumber}`
 }
 
+function removeUndefinedAndAnyValuesFromArray (arr: number[], value: any): number[] {
+    arr = arr ?? null
+    if (arr === null) return null
+    arr = arr.map(x => x ?? undefined)
+    
+    for (let index = arr.length - 1; index >= 0; index--) {
+        if (arr[index] === value || arr[index] === undefined) {
+            arr.splice(index, 1)
+        }
+    }
+
+    const validation = arr[0] === undefined ? null : arr
+    return validation
+}
+
 export const Exercise15 = (values: number[]): string => {
     // 15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 
+    values = removeUndefinedAndAnyValuesFromArray(values, undefined)
+    if (values === null) return 'Array inválido' 
+        
     const multipleByThree = values.filter(x => x % 3 === 0).length
     const multipleByFive = values.filter(x => x % 5 === 0).length
 
