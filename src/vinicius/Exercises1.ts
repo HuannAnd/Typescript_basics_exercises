@@ -1,3 +1,5 @@
+import { removeUndefinedOrAnyValuesFromArray } from "."
+
 export const Exercise1A = (): number[] => {
     // a)Os números de 1 a 10 de forma crescente
     
@@ -89,6 +91,9 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
     // verifica qual candidato tem mais votos. Caso o número de votos seja igual,
     // o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso contrário deve 
     // imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+    candidateNames = removeUndefinedOrAnyValuesFromArray(candidateNames, undefined)
+    candidateVotes = removeUndefinedOrAnyValuesFromArray(candidateVotes, undefined)
+    if (candidateNames === null || candidateVotes === null) return 'Array inválido' 
 
     let candidates: {
         name: string
@@ -240,25 +245,11 @@ export const Exercise14 = (firstNumber: number, secondNumber: number, thirdNumbe
     return `${thirdNumber} ${secondNumber} ${firstNumber}`
 }
 
-function removeUndefinedAndAnyValuesFromArray (arr: number[], value: any): number[] {
-    arr = arr ?? null
-    if (arr === null) return null
-    arr = arr.map(x => x ?? undefined)
-    
-    for (let index = arr.length - 1; index >= 0; index--) {
-        if (arr[index] === value || arr[index] === undefined) {
-            arr.splice(index, 1)
-        }
-    }
-
-    const validation = arr[0] === undefined ? null : arr
-    return validation
-}
 
 export const Exercise15 = (values: number[]): string => {
     // 15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 
-    values = removeUndefinedAndAnyValuesFromArray(values, undefined)
+    values = removeUndefinedOrAnyValuesFromArray(values, undefined)
     if (values === null) return 'Array inválido' 
         
     const multipleByThree = values.filter(x => x % 3 === 0).length
