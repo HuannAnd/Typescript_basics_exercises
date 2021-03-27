@@ -1,9 +1,14 @@
-//* 1)Crie um programa que imprima:
+//! 1)Crie um programa que imprima:
+
+import { couldStartTrivia, setSyntheticLeadingComments } from "typescript"
+
+//* Este é mais recomendado
 export const FirstExerciseA = () => {
     // a)Os números de 1 a 10 de forma crescente
     
     for (let v1 = 1; v1 <= 10; v1++) {
         console.log(v1)
+    
     }
     // let counter = 1,
     // while (counter <= 10) {
@@ -13,12 +18,19 @@ export const FirstExerciseA = () => {
     // }
 }
 
+//* Mesmo código porém escrito de maneiras diferentes
+//? function firstExerciseA() {
+//?     return 1
+//? }
+
+// Aqui estou exportando explicitamente logo na criação desta função
+// ou seja, estou criando e já exportando-a
 export const firstExerciseB = () => {
     // b)Os números de 1 a 10 de forma decrescente
     
     for (let v2 = 10; v2 >= 1 ; v2--){
         console.log(v2)
-    }
+        }
   
   // let subscript = 10
     // while (subscript >= 1) {
@@ -32,6 +44,7 @@ export function FirstExerciseC() {
   
     for (let v3 = 2; v3 <= 10 ; v3 += 2) {
         console.log(v3)
+    
     }
 }
 
@@ -70,7 +83,7 @@ export const FirstExercise4 = (ages: Array<number>) => {
         index++
     }
 
-    const average = agesSum / index
+    const average = agesSum / ages.length
     console.log(parseFloat(average.toFixed(2)))
 }
 
@@ -127,8 +140,10 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
             console.log('SENHA VERIFICADA')            
             
             for (let index = 0; index < props.candidatesNames.length; index++) {
-                candidates.push({name: props.candidatesNames[index], votes: 0})
-            }
+                candidates.push({
+                    name: props.candidatesNames[index], 
+                    votes: 0
+                })
             
         }
 
@@ -137,15 +152,20 @@ export const FirstExercise6 = (props : PropsFirstExercise6) => {
                 candidates[index].votes += props.candidatesVotes[index]
             }           
         }
-
-        
+    
         else {
-            for (let index = 0; index < props.candidatesNames.length ; index++) {
-                Math.max(candidates[index].votes)
-            }
+            const mostVotes = candidates[0].votes
+            const a1 = candidates.filter({ ;
+            const maxVote = Math.max(...a1)
+            candidates.filter(x => )
+            
+                
+             }
 
-        }  
-    }
+            }        
+                
+
+    }  
 }
 
 
@@ -223,12 +243,17 @@ export const FirstExercise12 = () => {
 export const FirstExercise13 = (numbers: number[]) => {
     // 13)Ler 10 valores e determinar o maior dentre eles.
     
-    console.log(`O número ${Math.max(...numbers)} é o maior número dentre os outros`)
+    console.log(`O número ${Math.max(...numbers)} é o maior número dentre os outros`)   
 }
 
 //! deixar por ultimo
-export const FirstExercise14 = () => {
+export const FirstExercise14 = (nms: Number[]) => {
     
+        const c1 = nms.filter(x => x > nms[0]) ; console.log(c1)
+
+    // const mostVotes = candidates[0].votes
+    //         const a1 = candidates.forEach(x => x.votes > candidates[0].votes) 
+    //          Math.max.apply(a1) 
 }
 
 export const FirstExercise15 = () => {
