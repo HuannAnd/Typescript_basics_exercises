@@ -1,18 +1,24 @@
+import { removeUndefinedOrAnyValuesFromArray } from './'
+
 export const Exercise1 = (arrayA: number[], arrayB: number[]): { arrayA: number[], arrayB: number[] } => {
     // 1)Popule dois vetores com 10 valores cada. 
     // Após esta operação, troque o conteúdo dos vetores.
     
-    const temporary: number[] = arrayB
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA, undefined)
+    arrayB = removeUndefinedOrAnyValuesFromArray(arrayB, undefined)
+    if (arrayB === null || arrayA === null) return null
+
+    const temporary = arrayB
     arrayB = arrayA
     arrayA = temporary
 
     let bothArrays: {
         arrayA: number[]
         arrayB: number[]
+    } = {
+        arrayA: temporary,
+        arrayB
     }
-
-    bothArrays[0] = arrayA
-    bothArrays[1] = arrayB
     
     return bothArrays
 }
@@ -21,10 +27,20 @@ export const Exercise2 = (arr: number[]): string => {
     // 2)Dado um vetor qualquer com 10 números, faça um programa 
     // que informa se há ou não números repetidos nesse vetor.
 
-    return arr.filter(x => x).length > 1 ? 'há números repetidos' : 'não há números repetidos'
+    arr = removeUndefinedOrAnyValuesFromArray(arr, undefined)
+    if (arr === null) return null
+
+    let sameNumbers: boolean = false
+    arr.forEach(x => {
+        arr.filter(y => y === x).length > 1 
+            ? sameNumbers = true
+            : false
+    })
+    
+    return sameNumbers ? 'há números repetidos' : 'não há números repetidos'
 }
 
-export const Exercise3 = (users : {sex: 'male' | 'female', answer: 'yes' | 'no'}[]) => {
+export const Exercise3 = (users: {sex:'male' | 'female', answer:'yes' | 'no'}[]) => {
     // 3)Um certa empresa fez uma pesquisa para saber se as pessoas 
     // gostaram ou não de um novo produto lançado no mercado. Para isso, 
     // forneceu-se o sexo do entrevistado e a sua resposta (sim ou não). 
@@ -35,6 +51,9 @@ export const Exercise3 = (users : {sex: 'male' | 'female', answer: 'yes' | 'no'}
     // • A percentagem de pessoas do sexo feminino que responderam sim;
     // • A percentagem de pessoas do sexo masculino que responderam não;
     
+    users = removeUndefinedOrAnyValuesFromArray(users)
+    if (users === null) return null
+
     const womenCount = users.filter(x => x.sex === 'female').length
     const menCount = users.filter(x => x.sex === 'male').length
 
@@ -44,8 +63,8 @@ export const Exercise3 = (users : {sex: 'male' | 'female', answer: 'yes' | 'no'}
     const usersSaidNo = users.filter(x => x.answer === 'no').length
     const usersSaidYes = users.filter(x => x.answer === 'yes').length
 
-    const womenSaidYesPercentage = (womenSaidYes * 100) / womenCount
-    const menSaidNoPercentage = (menSaidNo * 100) / menCount
+    const womenSaidYesPercentage = (womenSaidYes * 100) / womenCount || 0
+    const menSaidNoPercentage = (menSaidNo * 100) / menCount || 0
 
     return `Women that said yes: ${womenSaidYesPercentage.toFixed(2)}%, men that said no: ${menSaidNoPercentage.toFixed(2)}%, users who said yes: ${usersSaidYes}, users who said no: ${usersSaidNo}`
 }

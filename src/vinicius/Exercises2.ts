@@ -1,11 +1,19 @@
+import { removeUndefinedOrAnyValuesFromArray } from './'
+
 export const Exercise1 = (a: number[], b: number[]): number[] => {
     // 1-Leia dois arrays A e B com 15 elementos. Construir um array C, onde cada elemento de C 
     // é a subtração do elemento correspondente de A com B. No final imprimir o array C.
     
-    let c: number[]
-    for (let index = 0; index< a.length; index++) {
+    a = removeUndefinedOrAnyValuesFromArray(a, undefined)
+    b = removeUndefinedOrAnyValuesFromArray(b, undefined)
+    if (a === null || b === null) return null
+
+    let c: number[] = []
+    let index = 0
+    a.forEach(x => {
         c.push(a[index] - b[index]) 
-    }
+        index++
+    })
 
     return c
 }
@@ -14,13 +22,21 @@ export const Exercise2 = (arr: number[]): { inverse: number[], direct: number[] 
     // 2-Ler um array com 10 inteiros e mostrar os números 
     // na ordem direta e inversa a que foram lidos.
     
-    let arrayDirectAndReverse: {
-        inverse: number[]
-        direct: number[]
+    arr = removeUndefinedOrAnyValuesFromArray(arr, undefined)
+    if (arr === null) return null
+
+    let arrReversed: number[] = []
+    for (let index = arr.length - 1; index > -1; index--) {
+        arrReversed.push(arr[index])
     }
 
-    arrayDirectAndReverse[0] = arr
-    arrayDirectAndReverse[1] = arr.reverse()
+    let arrayDirectAndReverse: {
+        direct: number[]
+        inverse: number[]
+    } = {
+        direct: arr,
+        inverse: arrReversed
+    }
 
     return arrayDirectAndReverse
 }
@@ -31,6 +47,10 @@ export const Exercise3 = (arrayA: number[], searchValueInTheArray: number): stri
     // Caso, seja verdade imprima a mensagem: “O número existe no array”, 
     // caso contrário “Número inexistente”.
     
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA, undefined)
+    if (arrayA === null) return null
+    searchValueInTheArray = searchValueInTheArray ?? 0
+
     const findValueInTheArray: number = arrayA.find(x => x === searchValueInTheArray)
     return findValueInTheArray !== undefined ? 'O número existe no array' : 'Número inexistente'
 }
@@ -38,6 +58,10 @@ export const Exercise3 = (arrayA: number[], searchValueInTheArray: number): stri
 export const Exercise4 = (arrayA: number[], arrayB: number[]): string => {
     // 4-Leia dois arrays A e B com 10 elementos.  
     // Em seguida, compare os arrays e verifique se os mesmos são iguais ou diferentes.
+    
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA, undefined)
+    arrayB = removeUndefinedOrAnyValuesFromArray(arrayB, undefined)
+    if (arrayA === null || arrayB === null) return null
     
     let arraysAreEqual: boolean = true
     for (let index = 0; index < arrayA.length; index++) {
@@ -53,6 +77,9 @@ export const Exercise4 = (arrayA: number[], arrayB: number[]): string => {
 export const Exercise5 = (arrayA: number[]): string => {
     // 5-Leia um array A com 15 elementos, e calcule a média aritmética dos mesmos, 
     // em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
+    
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA, undefined)
+    if (arrayA === null) return null
     
     const arithmeticAverage: number = arrayA.reduce((a, b) => a + b) / arrayA.length
 
@@ -70,11 +97,14 @@ export const Exercise6 = (arrayA: number[], arrayB: number[]): number[] => {
     // C é a soma do elemento correspondente de A com b. Colocar em ordem crescente a matriz 
     // C e apresentar os seus valores.
     
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA, undefined)
+    arrayB = removeUndefinedOrAnyValuesFromArray(arrayB, undefined)
+    if (arrayA === null || arrayB === null) return null
+    
     arrayA.sort()
-    arrayB.sort()
-    const arrayBReversed = arrayB.reverse()
+    arrayB.sort(function(a, b) { return b - a })
+    
     let c: number[] = []
-
     for (let index = 0; index < arrayA.length; index++) {
         c.push(arrayA[index] + arrayB[index])
     }
