@@ -39,7 +39,7 @@ describe('testing first list of exercises', () => {
 
   //ToDo: test exercise 6
   test('Exercise 6', () => {
-    expect(Exercises.Exercise6('senha errada',[],[])).toBe('senha inválida')
+    expect(Exercises.Exercise6('senha errada',['Vinicius'],[0])).toBe('senha inválida')
     expect(Exercises.Exercise6('Pa$$w0rd',['Huann','Vinicius'],[1,10]))
       .toBe('O vencedor é Vinicius com 10 voto(s)')
     expect(Exercises.Exercise6('Pa$$w0rd',['Huann','Lucas','Vinicius'],[16,4,0]))
