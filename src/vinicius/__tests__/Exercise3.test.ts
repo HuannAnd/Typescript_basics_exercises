@@ -44,4 +44,43 @@ describe('Test third list of exercises', () => {
         expect(Exercises.Exercise3(null)).toBeNull()
         expect(Exercises.Exercise3(undefined)).toBeNull()
     })
+
+    test('Fourth Exercise', () => {
+        expect(Exercises.Exercise4([1,3,5])).toBe(9)
+        expect(Exercises.Exercise4([2,4,5])).toBe(5)
+        expect(Exercises.Exercise4(undefined)).toBeNull()
+        expect(Exercises.Exercise4(null)).toBeNull()
+    })
+
+    test('Fifth Exercise', () => {
+        expect(Exercises.Exercise5(undefined)).toBeNull()
+        expect(Exercises.Exercise5(null)).toBeNull()
+        expect(Exercises.Exercise5([1,2,3])).toBe(3)
+        expect(Exercises.Exercise5([-1,-2,-3])).toBe(0)
+    })
+
+    test('Sixth Exercise', () => {
+        expect(Exercises.Exercise6([1,2,3,4])).toBe('Maior valor: 4, index: 3')
+        expect(Exercises.Exercise6([1,-2,-3,-4])).toBe('Maior valor: 1, index: 0')
+        expect(Exercises.Exercise6(undefined)).toBeNull()
+        expect(Exercises.Exercise6(null)).toBeNull()
+    })
+
+    test('Seventh Exercise', () => {
+        expect(Exercises.Exercise7([0,1,2])).toBe(3)
+        expect(Exercises.Exercise7(null)).toBeNull()
+        expect(Exercises.Exercise7(undefined)).toBeNull()
+    })
+
+    test('Eighth Exercise', () => {
+        expect(Exercises.Exercise8(['a','e','i','o','u'])).toBe(5)
+        expect(Exercises.Exercise8(null)).toBeNull()
+        expect(Exercises.Exercise8(undefined)).toBeNull()
+    })
+
+    test('Ninth Exercise', () => {
+        expect(Exercises.Exercise9(['H','.','U','.','A','.','N','.','N','',' ','','G','','A','','Y'])).toBe('HUANN GAY')
+        expect(Exercises.Exercise9(undefined)).toBeNull()
+        expect(Exercises.Exercise9(null)).toBeNull()
+    })
 })
