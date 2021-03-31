@@ -178,3 +178,21 @@
         // return serve para retornar da função algum valor especifico neste caso 'hello World'
         return 'Hello World'  // Aqui estou retornando a string 'hello World'
     }
+
+
+### Eslint
+
+    // instalando EsLint Global
+    npm install -g eslint
+
+    // inicializando
+    1º eslint --init
+    2º To check syntax, find problems, and enforce code style
+    3º JavaScript modules (import/export)
+    4º None of these // Nesse caso
+    5º Yes
+    6º Node
+    7º Use a popular style guide
+    8º Standard: https://github.com/standard/standard
+    9º JSON
+    10º Yes
