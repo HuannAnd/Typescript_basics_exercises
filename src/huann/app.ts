@@ -4,21 +4,36 @@ import { convertCompilerOptionsFromJson, couldStartTrivia, createTempVariable, f
 
 //* Este é mais recomendado
 
-export const TesteDeCoisas = (numberRandom: number) => {
-    // booleanValue = booleanValue? falso verdadeiro
+
+
+
+
+
+
+
+
+
+export const TesteDeCoisas = (numberRandom: number[]) => {
   
-    const mamaCitA = [1,2,3,4,5].filter(x => ![numberRandom].includes(x))
-    console.log(mamaCitA)  
+  
+    // booleanValue = booleanValue? falso verdadeiro
+    
+    
+    // const mamaCita = console.log([1,2,3,4,5].filter(x => !(x in[numberRandom]))) 
+    // const mamaCitA = console.log([1,2,3,4,5].filter(x => ![numberRandom].includes(x)))
+
+        
 }
-
-export const FirstExerciseA = () => {
+     
+export const FirstExerciseA = (quantityValues: number, value0: number) => {
     // a)Os números de 1 a 10 de forma crescente
-    
-    for (let v1 = 1; v1 <= 10; v1++) {
-        console.log(v1)
-    
-    }
+    // if (let index, quantityValues > 0 ; Math.floor())
 
+
+    // for (let v1 = 1; v1 <= 10; v1++) {
+    //     console.log(v1)
+    
+    // }
 }
 
 //* Mesmo código porém escrito de maneiras diferentes
@@ -252,8 +267,8 @@ export const FirstExercise15 = (...numbers) => {
         numbers.filter(x => x % 5 === 0).length} são múltiplos de 5 
     `)}
    
-//TODO:REFOTORAR PARA SWITCH CASE. 
-export const FirstExercise16 = (salário: number) => {
+//TODO: REFATORAR PARA SWITCH CASE. 
+export const FirstExercise16 = (salary: number) => {
     // 16)Ler o salário de uma pessoa e imprimir o Salário Líquido de acordo
     //  com a redução do imposto descrito ao lado:
     // Menor ou igual a R$ 600,00 - ISENTO de desconto
@@ -261,10 +276,23 @@ export const FirstExercise16 = (salário: number) => {
     // Maior que R$ 1.200 e menor ou igual a R$2.000 - 25% desconto
     // Maior que R$ 2.000,00 - 30% desconto    
    
-    if(salário < 600) console.log(salário)
-    else if(salário <= 1200 && salário > 600) console.log(salário*4/5)
-    else if(salário <= 2000 && salário > 1200) console.log(salário*3/4)
-    else console.log(salário*7/10)           
+    
+
+    switch (salary) {
+        case 1:
+            console.log(salary)
+        case 2: 
+            console.log(salary * 4/5);
+           
+        default :
+            console.log(salary * 7/10);
+            break
+    }
+    
+    // if(salário < 600) console.log(salário)
+    // else if(salário <= 1200 && salário > 600) console.log(salário*4/5)
+    // else if(salário <= 2000 && salário > 1200) console.log(salário*3/4)
+    // else console.log(salário*7/10)           
 }
 
 export const FirstExercise17 = (numberOnTable: number) => {
