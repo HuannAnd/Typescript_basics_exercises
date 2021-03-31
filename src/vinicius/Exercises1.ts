@@ -91,6 +91,7 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
     // verifica qual candidato tem mais votos. Caso o número de votos seja igual,
     // o sistema deve imprimir a mensagem "SEGUNDO TURNO", caso contrário deve 
     // imprimir o nome do candidato vencedor e o número de votos que ele obteve.
+    
     candidateNames = removeUndefinedOrAnyValuesFromArray(candidateNames, undefined)
     candidateVotes = removeUndefinedOrAnyValuesFromArray(candidateVotes, undefined)
     if (candidateNames === null || candidateVotes === null) return 'Array inválido' 
@@ -119,14 +120,11 @@ export const Exercise6 = (password: string, candidateNames: string[], candidateV
 
         else {
             const mostVotes = Math.max(...candidates.map(x => x.votes))
-            
             const candidatesWithMostVotes = candidates.filter(x => x.votes === mostVotes)
-            const secondTurnVerification = candidatesWithMostVotes.length > 1
         
-            if (secondTurnVerification) 
-                return `Segundo turno entre: ${candidatesWithMostVotes.map(x => x.name).join(', ')}`
-
-            return `O vencedor é ${candidatesWithMostVotes[0].name} com ${candidatesWithMostVotes[0].votes} voto(s)`
+            return candidatesWithMostVotes.length > 1
+                ? `Segundo turno entre: ${candidatesWithMostVotes.map(x => x.name).join(', ')}`
+                : `O vencedor é ${candidatesWithMostVotes[0].name} com ${candidatesWithMostVotes[0].votes} voto(s)`
         }
     }
 }
@@ -245,7 +243,6 @@ export const Exercise14 = (firstNumber: number, secondNumber: number, thirdNumbe
     return `${thirdNumber} ${secondNumber} ${firstNumber}`
 }
 
-
 export const Exercise15 = (values: number[]): string => {
     // 15)Ler 10 números e imprimir quantos são múltiplos de 3 e quantos são múltiplos de 5.
 
@@ -288,8 +285,7 @@ export const Exercise17 = (table: number): number[] => {
     table = table ?? null
     if (table === null) return null
     
-    const multiplicationTable = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    return multiplicationTable.map(item => item * table)
+    return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(item => item * table)
 }
 
 export const Exercise18 = (apples: number): number => {

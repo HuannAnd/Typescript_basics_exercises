@@ -74,13 +74,19 @@ export const Exercise4 = (arrayA: number[]): number => {
     // de uma matriz A do tipo vetor. No final, apresente o total da 
     // soma de todos os elementos que sejam ímpares.
 
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
+
     return arrayA
-        .filter(x => x % 0 !== 0)
+        .filter(x => x % 2 !== 0)
         .reduce((x, y) => x + y)
 }
 
 export const Exercise5 = (arrayA: number[]): number => {
     // 5)Contar quantos valores de um vetor de 10 posições são positivos.
+    
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
 
     return arrayA.filter(x => x > 0).length
 }
@@ -90,9 +96,12 @@ export const Exercise6 = (arrayA: number[]): string => {
     // Escrever a seguir o valor do maior elemento de Q e a respetiva posição 
     // que ele ocupa no vetor.
 
-    const arrayAPositiveNumbers: number[] = arrayA.filter(x => x > -1)
-    const maxValueOfTheArray: number = Math.max(...arrayAPositiveNumbers)
-    const indexValueOfTheArray: number = arrayAPositiveNumbers.indexOf(maxValueOfTheArray)
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
+    
+    const arrayAPositiveNumbers = arrayA.filter(x => x > -1)
+    const maxValueOfTheArray = Math.max(...arrayAPositiveNumbers)
+    const indexValueOfTheArray = arrayAPositiveNumbers.indexOf(maxValueOfTheArray)
 
     return `Maior valor: ${maxValueOfTheArray}, index: ${indexValueOfTheArray}`
 }
@@ -102,7 +111,10 @@ export const Exercise7 = (arrayA: number[]): number => {
     // vezes que existe um número residindo na mesma posição do 
     // vetor que seu valor numérico.
     
-    let sameIndexNumbers: number
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
+    
+    let sameIndexNumbers = 0
     for (let index = 0; index < arrayA.length; index++) {
         if (arrayA[index] === index) sameIndexNumbers++
     }
@@ -113,9 +125,13 @@ export const Exercise7 = (arrayA: number[]): number => {
 export const Exercise8 = (arrayA: string[]): number => {
     // 8)Crie um vetor de strings de 10 posições onde cada posição recebe
     // uma letra do alfabeto. No final, imprima quantas destas são vogais.
+    
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
 
     return arrayA
-        .filter(x => x.toUpperCase() === 'A' || x.toUpperCase() === 'E' || x.toUpperCase() === 'I' || x.toUpperCase() === 'O' || x.toUpperCase() === 'U')
+        .map(x => x.toUpperCase())
+        .filter(x => x === 'A' || x === 'E' || x === 'I' || x === 'O' || x === 'U')
         .length
 }
 
@@ -124,6 +140,9 @@ export const Exercise9 = (arrayA: string[]): string => {
     // recebe uma letra do alfabeto. No final, imprima a string 
     // resultante da soma das strings que residem em índices pares.
 
+    arrayA = removeUndefinedOrAnyValuesFromArray(arrayA)
+    if (arrayA === null) return null
+    
     let resultantString: string = ''
     for (let index = 0; index < arrayA.length; index += 2) {
         resultantString += arrayA[index]
