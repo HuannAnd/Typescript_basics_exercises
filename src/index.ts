@@ -7,8 +7,9 @@ import * as Exercises2 from './huann/Exercises2'
 //! (D/d):ordem
 // Exercises.FirstExercise6(['Huann', 'Vinicius'], [2,2], 'Pa$$w0rd')
 // Exercises1.SecondExercise1()
-Exercises2.SecondExercise4([1,2,3],[2,5,7,11]) 
-Exercises2.SecondExercise4([1,2,3],[1,2,3]) 
-Exercises2.SecondExercise4([1,2,3],[1,2,4]) 
+Exercises2.SecondExercise4([1, 2, 3], [2, 5, 7, 11])
+Exercises2.SecondExercise4([1, 2, 3], [1, 2, 3])
+Exercises2.SecondExercise4([1, 2, 3], [3, 2, 1])
+Exercises2.SecondExercise4([1, 2, 3], [1, 2, 4])
 // expected : [2,5,7]
 // expected : [11]
