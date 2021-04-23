@@ -53,11 +53,13 @@ export function SecondExercise4 (A: number[], B: number[]) {
   // Se os mesmos são iguais ou diferentes.
 
   const verificationArrayAAndB = A.length === B.length ? 1 : 0
+  const newArrayVerification: [] = []
   switch (verificationArrayAAndB) {
     case 1:
-      A === B
-        ? console.log('O array A é igual ao array B')
-        : console.log('O array A é diferente do array B')
+      for (let index = 0; index < A.length; index++) {
+        newArrayVerification.push(A[index] === B[index] ? 1 : 0)
+      }
+
       break
     default:
       console.log('A é diferente de B')
@@ -67,40 +69,40 @@ export function SecondExercise4 (A: number[], B: number[]) {
   // A: 1,2,3,4 // vamos comparar o 1 por ex com cada valor de b, em seguida o 2 com cada valor de b e assim vai.
   // B: 3,4,5,6
 
-//   let areEqual: boolean = false
-//   for (let i = 0; i < A.length && i < B.length; i++) {
-//     for (let j = 0; j < A.length && j < B.length; j++) {
-//       if (i === j && A[i] === B[j]) {
-//         areEqual = true
-//         break
-//       }
+  //   let areEqual: boolean = false
+  //   for (let i = 0; i < A.length && i < B.length; i++) {
+  //     for (let j = 0; j < A.length && j < B.length; j++) {
+  //       if (i === j && A[i] === B[j]) {
+  //         areEqual = true
+  //         break
+  //       }
 
-//       areEqual = false
-//     }
-//   }
+  //       areEqual = false
+  //     }
+  //   }
 
-//   console.log(areEqual ? 'são iguais' : 'são diferentes')
-// }
+  //   console.log(areEqual ? 'são iguais' : 'são diferentes')
+  // }
 
-// export function SecondExercise5 (A: number[]) {
-//   // 5-Leia um array A com 15 elementos,
-//   // e calcule a média aritmética dos mesmos, em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
+  // export function SecondExercise5 (A: number[]) {
+  //   // 5-Leia um array A com 15 elementos,
+  //   // e calcule a média aritmética dos mesmos, em seguida, diga quantos dos elementos lidos estão abaixo, acima e na média.
 
-//   let average = 0
-//   for (let index = 0; index < A.length; index++) {
-//     average += A[index] / A.length
-//   }
+  //   let average = 0
+  //   for (let index = 0; index < A.length; index++) {
+  //     average += A[index] / A.length
+  //   }
 
-//   const numberGreaterThanAverage: number[] = []
-//   const numberLessThanAverage: number[] = []
-//   for (let index = 0; index < array.length; index++) {
+  //   const numberGreaterThanAverage: number[] = []
+  //   const numberLessThanAverage: number[] = []
+  //   for (let index = 0; index < array.length; index++) {
 
-//   }
-// }
+  //   }
+  // }
 
 // ? let lastVerification: number[] = []
 // ? const lastVerificationElements = A === B ?
 // ? for (let index = 0; index < A.length; index++) {
 // ?  const verificationAAndBElements = A[index] === B[index]
 // ?  lastVerification.push([index])
-
+}
