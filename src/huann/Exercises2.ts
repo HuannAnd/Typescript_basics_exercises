@@ -52,35 +52,35 @@ export function SecondExercise4 (A: number[], B: number[]) {
   // 4-Leia dois arrays A e B com 10 elementos. Em seguida, compare os arrays e verifique
   // Se os mesmos são iguais ou diferentes.
 
-  // const verificationArrayAAndB = A.length === B.length ? 1 : 0
-  // switch (verificationArrayAAndB) {
-  //   case 1:
-  //     A === B
-  //       ? console.log('O array A é igual ao array B')
-  //       : console.log('O array A é diferente do array B')
-  //     break
-  //   default:
-  //     console.log('A é diferente de B')
-  //     break
-  // }
+  const verificationArrayAAndB = A.length === B.length ? 1 : 0
+  switch (verificationArrayAAndB) {
+    case 1:
+      A === B
+        ? console.log('O array A é igual ao array B')
+        : console.log('O array A é diferente do array B')
+      break
+    default:
+      console.log('A é diferente de B')
+      break
+  }
 
   // A: 1,2,3,4 // vamos comparar o 1 por ex com cada valor de b, em seguida o 2 com cada valor de b e assim vai.
   // B: 3,4,5,6
 
-  let areEqual: boolean = false
-  for (let i = 0; i < A.length && i < B.length; i++) {
-    for (let j = 0; j < A.length && j < B.length; j++) {
-      if (i === j && A[i] === B[j]) {
-        areEqual = true
-        break
-      }
+//   let areEqual: boolean = false
+//   for (let i = 0; i < A.length && i < B.length; i++) {
+//     for (let j = 0; j < A.length && j < B.length; j++) {
+//       if (i === j && A[i] === B[j]) {
+//         areEqual = true
+//         break
+//       }
 
-      areEqual = false
-    }
-  }
+//       areEqual = false
+//     }
+//   }
 
-  console.log(areEqual ? 'são iguais' : 'são diferentes')
-}
+//   console.log(areEqual ? 'são iguais' : 'são diferentes')
+// }
 
 // export function SecondExercise5 (A: number[]) {
 //   // 5-Leia um array A com 15 elementos,
@@ -103,3 +103,4 @@ export function SecondExercise4 (A: number[], B: number[]) {
 // ? for (let index = 0; index < A.length; index++) {
 // ?  const verificationAAndBElements = A[index] === B[index]
 // ?  lastVerification.push([index])
+
